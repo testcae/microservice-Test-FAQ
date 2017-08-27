@@ -89,7 +89,36 @@ public class FAQ extends RESTService {
 
     private final FAQ service = (FAQ) Context.getCurrent().getService();
 
-    
+      /**
+   * 
+   * getFaq
+   * 
+   * @param result a JSONObject 
+   * 
+   * @return Response  
+   * 
+   */
+  @GET
+  @Path("/")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "okResult")
+  })
+  @ApiOperation(value = "getFaq", notes = " ")
+  public Response getFaq(String result) {
+    JSONObject result_JSON = (JSONObject) JSONValue.parse(result);
+
+    // okResult
+    boolean okResult_condition = true;
+    if(okResult_condition) {
+      JSONObject  = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
+    }
+    return null;
+  }
+
+
 
   }
 

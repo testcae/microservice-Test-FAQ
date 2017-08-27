@@ -89,6 +89,28 @@ public class FAQTest {
   }
 
 
+  /**
+   * 
+   * Test for the getFaq method.
+   * 
+   */
+  @Test
+  public void testgetFaq() {
+    MiniClient c = new MiniClient();
+    c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
+    try {
+      JSONObject result = new JSONObject();
+      c.setLogin(Long.toString(testAgent.getId()), testPass);
+      ClientResponse result = c.sendRequest("GET", mainPath + "/", result.toJSONString(),
+        MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
+      assertTrue(true); // change here
+      System.out.println("Result of 'testgetFaq': " + result.getResponse().trim());
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
+  }
+
 
 
 
